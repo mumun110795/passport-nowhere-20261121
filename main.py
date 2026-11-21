@@ -1,13 +1,14 @@
-#!/usr/bin/env python3
-"""Copy the bundled entry.png to /output/entry.png (stdlib only)."""
+"""Entrypoint: copy the bundled passport spread to /output/entry.png."""
 import os
 import shutil
 
+HERE = os.path.dirname(os.path.abspath(__file__))
+
+
 def main():
-    src = os.path.join(os.path.dirname(os.path.abspath(__file__)), "entry.png")
-    dst_dir = "/output"
-    os.makedirs(dst_dir, exist_ok=True)
-    shutil.copyfile(src, os.path.join(dst_dir, "entry.png"))
+    os.makedirs("/output", exist_ok=True)
+    shutil.copyfile(os.path.join(HERE, "entry.png"), "/output/entry.png")
+
 
 if __name__ == "__main__":
     main()
